@@ -1,0 +1,2 @@
+Route::resource('{{ $config->prefixes->getRoutePrefixWith('/') }}{{ $config->modelNames->dashedPlural }}', {{ $config->namespaces->controller }}\{{ $config->modelNames->name }}Controller::class)@if(!$config->prefixes->route);@endif
+@if($config->prefixes->route){!! app_nl_tab().'->names(['.app_nl_tab(1, 2).implode(','.app_nl_tab(1, 2), create_resource_route_names($config->prefixes->getRoutePrefixWith('.').$config->modelNames->dashedPlural, true)).app_nl_tab().']);' !!}@endif

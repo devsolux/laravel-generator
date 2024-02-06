@@ -1,0 +1,2 @@
+Route::resource('{{ $config->prefixes->getRoutePrefixWith('/') }}{{ $config->modelNames->dashedPlural }}', {{ $config->namespaces->apiController }}\{{ $config->modelNames->name }}APIController::class){!! app_nl_tab() !!}->except(['create', 'edit'])@if(!$config->prefixes->route);@endif
+@if($config->prefixes->route){!! app_nl_tab().'->names(['.app_nl_tab(1,2).implode(','.app_nl_tab(1, 2), create_resource_route_names($config->prefixes->getRoutePrefixWith('.').$config->modelNames->camelPlural)).app_nl_tab().']);' !!}@endif
